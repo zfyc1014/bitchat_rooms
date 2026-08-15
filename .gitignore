@@ -1,19 +1,28 @@
 # Android Studio / IntelliJ
 .idea/
+.kotlin/
+.gradle/
 *.iml
 build/
 !*/build/filtered-manifest/
 !*/build/generated/
 !*/build/intermediates/
 local.properties
-.gradle/
-.kotlin/
 captures/
 .externalNativeBuild/
 debug_keystore/
 *.keystore
 debug.keystore
 app/release
+.agents/
+
+# Local project artifacts and logs
+*.log
+*.hprof
+build_lock.log
+build_verify.log
+lint_phase2.log
+verify_meta.log
 
 # Gradle
 /build/
