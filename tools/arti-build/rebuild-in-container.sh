@@ -41,4 +41,4 @@ if [ "$MODE" = "--update-lockfile" ]; then
   echo "Cargo.lock updated in the pinned native container; review it before rebuilding."
   exit 0
 fi
-"$SCRIPT_DIR/verify-checksums.sh"
+bash "$SCRIPT_DIR/verify-checksums.sh"

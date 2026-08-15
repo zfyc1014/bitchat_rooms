@@ -53,7 +53,7 @@ jobs:
           cache-disabled: true
 
       - name: Build canonical unsigned APKs and AAB
-        run: tools/reproducible-builds/build-in-container.sh "$RUNNER_TEMP/release-${{ matrix.replica }}"
+        run: bash tools/reproducible-builds/build-in-container.sh "$RUNNER_TEMP/release-${{ matrix.replica }}"
 
       - name: Upload unsigned replica
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

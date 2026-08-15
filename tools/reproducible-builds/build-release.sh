@@ -30,7 +30,7 @@ if [ "$actual_java_version" != "$expected_java_version" ]; then
   exit 1
 fi
 
-"$PROJECT_ROOT/tools/arti-build/verify-checksums.sh"
+bash "$PROJECT_ROOT/tools/arti-build/verify-checksums.sh"
 
 export GRADLE_USER_HOME="${BITCHAT_GRADLE_USER_HOME:-$PROJECT_ROOT/.reproducible-build/gradle-home}"
 export LC_ALL=C.UTF-8
