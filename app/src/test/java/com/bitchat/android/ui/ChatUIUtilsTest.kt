@@ -6,15 +6,16 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.bitchat.android.model.BitchatMessage
+import com.bitchat.android.ui.theme.AccentColor
 import com.bitchat.android.ui.theme.BitchatFontFamily
 import com.bitchat.android.ui.theme.ChatVisualTokens
-import com.bitchat.android.ui.theme.DarkBitchatColorScheme
 import com.bitchat.android.ui.theme.DarkBitchatPalette
-import com.bitchat.android.ui.theme.LightBitchatColorScheme
 import com.bitchat.android.ui.theme.LightBitchatPalette
 import com.bitchat.android.ui.theme.MessageBodyTextStyle
 import com.bitchat.android.ui.theme.MessageSenderTextStyle
 import com.bitchat.android.ui.theme.PeerColorStyle
+import com.bitchat.android.ui.theme.bitchatDarkColorScheme
+import com.bitchat.android.ui.theme.bitchatLightColorScheme
 import com.bitchat.android.ui.theme.colorForPeer
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -38,7 +39,7 @@ class ChatUIUtilsTest {
     }
 
     private val palette = DarkBitchatPalette
-    private val colorScheme = DarkBitchatColorScheme
+    private val colorScheme = bitchatDarkColorScheme(AccentColor.Green)
 
     private fun message(
         content: String,
@@ -489,8 +490,14 @@ class ChatUIUtilsTest {
 
     @Test
     fun `material owns standard text while Bitchat palette owns peer chroma`() {
-        assertEquals(Color(0xFFF5F5F5), DarkBitchatColorScheme.onSurface)
-        assertTrue(LightBitchatColorScheme.onSurface != DarkBitchatColorScheme.onSurface)
+        assertEquals(
+            Color(0xFFF5F5F5),
+            bitchatDarkColorScheme(AccentColor.Green).onSurface
+        )
+        assertTrue(
+            bitchatLightColorScheme(AccentColor.Green).onSurface !=
+                bitchatDarkColorScheme(AccentColor.Green).onSurface
+        )
         assertTrue(
             LightBitchatPalette.peerColors != DarkBitchatPalette.peerColors
         )
